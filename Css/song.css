@@ -1,0 +1,107 @@
+@font-face {
+    font-family: spotify;
+    weight: 10;
+    src: url(Assets/Font/FranieVariableTest-Regular-BF64c31f3d73b64.otf);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.logo{
+    margin:10px 16px;
+    width: 30%;
+    margin-left: 50px;
+  }
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #ffffff;
+    background: linear-gradient(to right, 
+        #42FF00 0%, 
+        #3FAD18 42%, 
+        #4B9B2F 65%, 
+        #358917 81%, 
+        #356126 100%);
+    background-attachment: fixed;
+}
+
+header {
+    background-color: #000000; 
+    color: #fff;
+    width: 100%;
+    position: relative;
+    top: 0;
+    z-index: 1000;
+    padding: 1rem 2rem;
+}
+
+.card-container{
+    display: flex;
+    gap: 21px;
+    margin-bottom: 25
+  px;
+    flex-wrap:wrap;
+    width: 100%;
+  }
+  
+  .card{
+    position: relative;
+    background-color: #171717;
+    font-size: 18px;
+    border-radius: 15px;
+    padding: 20px;
+    width:200px;
+    margin: 10px 0px;
+    transition: all 1s ;
+  
+  }
+  
+  .card:hover{
+    cursor: pointer;
+    background-color: black;
+  }
+  
+  .card > *{
+    padding-top: 10px;
+  }
+  .card img{
+    width: 100%;
+    object-fit: contain;
+    border-radius: 13px;
+  } 
+  
+  .card p{
+    font-size: 100%;
+  }
+  
+  .play{
+    border-radius: 10px;
+    position:absolute;
+    width: 55px;
+    bottom: 102px;
+    left: 132px;
+    background-color: transparent;
+    border : none;
+    opacity:0;
+    transition: all 0.3s ease-in-out;
+  }
+
+  
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.spotifyplaylist{
+    padding: 30px 30px;
+    margin: 0;
+    max-height: 100vh;
+    overflow-y: auto;
+  }
+
+  

@@ -1,0 +1,172 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #ffffff;
+    background: linear-gradient(to right, 
+        #42FF00 0%, 
+        #3FAD18 42%, 
+        #4B9B2F 65%, 
+        #358917 81%, 
+        #356126 100%);
+    background-attachment: fixed;
+}
+
+header {
+    background-color: #000000; 
+    color: #fff;
+    width: 100%;
+    position: relative;
+    top: 0;
+    z-index: 1000;
+    padding: 1rem 2rem;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    flex: 1;
+}
+
+.logo img {
+    height: 90px;
+    margin-right: 90px
+    ;
+}
+
+nav {
+    flex: 2;
+    text-align: center;
+}
+
+nav ul {
+    display: inline-flex;
+    list-style: none;
+}
+
+nav ul li {
+    margin: 0 1rem;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: #1db954; 
+}
+
+.header-buttons {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.header-buttons .btn-login,
+.header-buttons .btn-signup {
+    color: #fff;
+    text-decoration: none;
+    margin-left: 1rem;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    transition: background-color 0.3s;
+}
+
+.header-buttons .btn-login {
+    background-color: white;
+    color: black;
+    border: 1px solid #fff;
+}
+
+.header-buttons .btn-signup {
+    background-color: #000000;
+}
+
+.header-buttons .btn-login:hover {
+    background-color: #1db954;
+    border-color: #1db954;
+}
+
+.header-buttons .btn-signup:hover {
+    background-color: #14833b;
+}
+
+.hero, .content {
+    padding-top: 80px; 
+}
+
+.hero {
+    text-align: center;
+    padding: 2rem 1rem;
+    margin-right: 10vw;
+    margin-left: 10vw;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.hero p {
+    font-size: 1.3rem;
+}
+
+.content {
+    max-width: 1000px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+    border-radius: 8px;
+}
+
+.about-section {
+    margin-bottom: 2.5rem;
+}
+
+.about-section h2 {
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+}
+
+.about-section h3{
+    text-align: center;
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+}
+
+.about-section p {
+    font-size: 1.3rem;
+}
+
+
+footer {
+    background: #000;
+    color: #fff;
+    text-align: center;
+    padding: 1rem 0;
+    padding-top: 2rem;
+    margin-top: 2rem;
+    height: 10vh;
+    
+}
+
+footer a {
+    color: #ff6347;
+    text-decoration: none;
+    margin: 0 0.5rem;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}

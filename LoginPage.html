@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  <link rel="stylesheet" href="Css/loginpage.css">
+</head>
+<body>
+  <header>
+    <div class="header-container">
+      <div class="logo">
+        <a href="homePage.html">
+          <img src="logo/image 2.svg" alt="Logo">
+        </a>
+      </div>
+    </div>
+  </header>
+  
+  <div class="container">
+    <div class="form-container" id="login-form-container">
+      <h2>Login To Willify</h2>
+      <form id="login-form">
+        <div class="form-group">
+          <label for="login-email">Email:</label>
+          <input type="email" id="login-email" required>
+        </div>
+        <div class="form-group">
+          <label for="login-password">Password:</label>
+          <input type="password" id="login-password" required>
+        </div>
+        <button type="submit">Login</button>
+        <div class="signup-link">
+          <p>Don't have an account? <a href="SignUpPage.html">Sign Up</a></p>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="./Js/login.js"></script>
+</body>
+</html>

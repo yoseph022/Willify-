@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Song Page</title>
+    <link rel="stylesheet" href="Css/style.css">
+    <link rel="stylesheet" href="Css/utility.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inria+Sans:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" 
+    rel="stylesheet">
+    <!-- <link rel="stylesheet" href="Css/song.css"> -->
+</head>
+<body>
+    <div class="container flex bg-black1">
+        <div class="left flex bg-black">
+            <div class="home bg-black">
+                <div class="logo">
+                    <a href="homePage.html"> 
+                    <img src="logo/image 2.svg" alt="Logo">
+                    </a>
+                </div>
+                <ul>
+                    <li>
+                        <img class="invert" src="Assets/home (1).svg" alt="home" /> 
+                        <a href="homePage.html" class="inline">Home</a>
+                    </li>
+                    <li>
+                        <img class="invert" src="Assets/search-interface-symbol.svg" alt="search" /> 
+                        <a href="searchPage.html" class="inline">Search</a>
+                    </li>
+                    <li>
+                        <img class="invert" src="logo/musical-note (1).svg" alt="Song;" >
+                        <a href="Song.html" class="inline">Songs</a>
+                    </li>
+                    <li>
+                        <img class="invert" src="logo/search-file.svg" alt="Song Detail">
+                        <a href="SongDetail.html" class="inline">Song Detail</a>
+                    </li>
+                    <li>
+                        <img class="invert" src="logo/people.svg" alt="aboutus">
+                        <a href="AboutUs.html" class="inline">About Us</a>
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+        <div class="right flex">
+            <div class="header flex">
+                <div class="nav">
+                    <div class="header-left">
+                        <button class="backward">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                <path d="M15 6C15 6 9.00001 10.4189 9 12C8.99999 13.5812 15 18 15 18" stroke="#ffffff"
+                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                        </button>
+                        <button class="forward">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                <path d="M9.00005 6C9.00005 6 15 10.4189 15 12C15 13.5812 9 18 9 18" stroke="#ffffff"
+                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="header-right">
+                        <button class="signup">
+                        <a href="SignUpPage.html" class="inline">Sign Up</a>
+                        </button>
+                        <button class="login">
+                        <a href="LoginPage.html" class="inline;">Login</a>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="mid green3">
+                <div class="spotifyplaylist1">
+                    <img src="cover/Lionel Richie.png" alt="logo">
+                    <div>
+                        <h2 class="song">Stuck On You</h2>
+                        <h3 class="song">Lionel Richie</h3>
+                    </div>
+                </div>
+                <h2 class="song">lyrics</h2>
+                <div class="lyric"></div>
+            </div>
+            <div class="playbar">
+                <audio class="audio-player" id="audio-player" src="song/All By Myself.mp3"></audio>
+                
+                <!-- <input class="seekbar progress" min="0" max="0" type="range"> -->
+                <div class="aboveBar">
+                    <!-- <img src="cover/Lionel Richie.png" width="50" alt="logo"> -->
+                   
+                    <div class="songInfo invert">
+                        <span class="songTitle"></span> - <span class="artist"></span>
+                    </div>
+                    <div class="songButtons">
+                        <img id="previous" src="Assets/prevsong.svg" alt="Previous">
+                        <img id="playpause" src="Assets/play.svg" alt="Play">
+                        <img id="next" src="Assets/nextsong.svg" alt="Next">
+                    </div>
+                    <div class="time">
+                        <span class="currentTime">0:00</span> / <span class="duration">0:00</span>
+                    </div>
+                </div>
+                <div class="seekbar">
+                    <div class="progress" id="progress"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const songData = JSON.parse(localStorage.getItem("selectedSong"));
+            if (songData) {
+                document.querySelector(".spotifyplaylist1 img").src = songData.image;
+                document.querySelector(".spotifyplaylist1 h2.song").textContent = songData.title;
+                document.querySelector(".spotifyplaylist1 h3.song").textContent = songData.artist;
+                document.querySelector(".lyric").innerHTML = songData.lyrics.split('\n').map(line => `<p>${line}</p>`).join('');
+                document.querySelector(".audio-player").src = songData.audio;
+            }
+
+            const audioPlayer = document.getElementById("audio-player");
+            const playPauseButton = document.getElementById("playpause");
+            const progressBar = document.getElementById("progress");
+            const currentTimeElem = document.querySelector(".currentTime");
+            const durationElem = document.querySelector(".duration");
+
+           
+
+            // Update the progress bar
+            audioPlayer.addEventListener("timeupdate", function() {
+                const progress = (audioPlayer.currentTime / audioPlayer.duration) * 100;
+                progressBar.style.width = progress + "%";
+
+                // Update the current time and duration display
+                currentTimeElem.textContent = formatTime(audioPlayer.currentTime);
+                durationElem.textContent = formatTime(audioPlayer.duration);
+            });
+
+            // Seek to a new position in the audio
+            document.querySelector(".seekbar").addEventListener("click", function(event) {
+                const rect = this.getBoundingClientRect();
+                const offsetX = event.clientX - rect.left;
+                const newTime = (offsetX / rect.width) * audioPlayer.duration;
+                audioPlayer.currentTime = newTime;
+            });
+
+            function formatTime(seconds) {
+                const minutes = Math.floor(seconds / 60);
+                seconds = Math.floor(seconds % 60);
+                return `${minutes}:${seconds < 10 ? "0" : ""}${seconds}`;
+            }
+        });
+    </script>
+    <script src="Js/script.js"></script>
+</body>
+</html>
